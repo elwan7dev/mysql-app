@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @mokatba.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mokatba.description %>
+</p>
+
+<p>
+  <strong>Attachedfile:</strong>
+  <%= link_to @mokatba.attachedFile.filename, @mokatba.attachedFile%>
+</p>
+
+<%= link_to 'Edit', edit_mokatba_path(@mokatba) %> |
+<%= link_to 'Back', mokatbas_path %>

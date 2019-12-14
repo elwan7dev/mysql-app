@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mokatbas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Attachedfile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mokatbas.each do |mokatba| %>
+      <tr>
+        <td><%= mokatba.title %></td>
+        <td><%= mokatba.description %></td>
+        <td><%= link_to mokatba.attachedFile.filename , mokatba.attachedFile %></td>
+        <td><%= link_to 'Show', mokatba %></td>
+        <td><%= link_to 'Edit', edit_mokatba_path(mokatba) %></td>
+        <td><%= link_to 'Download', rails_blob_path(mokatba.attachedFile, disposition: "attachment" , only_path: true) %></td>
+        <td><%= link_to 'Destroy', mokatba, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mokatba', new_mokatba_path %>
